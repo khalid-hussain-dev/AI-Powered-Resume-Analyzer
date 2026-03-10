@@ -1,0 +1,8 @@
+python
+pandas
+numpy
+matplotlib
+sklearn
+tensorflow
+machine learning
+data analysis

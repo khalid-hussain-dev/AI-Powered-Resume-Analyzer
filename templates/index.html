@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+	<link rel="icon" type="image/png" href="{{ url_for('static', filename='logo.png') }}" />
+  <title>AI-Powered Resume Analyzer</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}"/>
+</head>
+<body>
+  <header>
+    <h1>AI-Powered Resume Analyzer</h1>
+    <p>FOR SMART JOB MATCHING</p>
+  </header>
+
+  <main>
+    <div class="left">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo" class="logo"/>
+    </div>
+    
+    <div class="right">
+      <div class="form-container">
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+          <h2>Upload Your Resume</h2>
+          <input type="file" name="resume" class="upload-btn" required/>
+
+          <h2>Select Job Role</h2>
+          <select name="job_role" class="dropdown" required>
+            <option value="" disabled selected>Select</option>
+            <option value="frontend">Frontend Developer</option>
+            <option value="backend">Backend Developer</option>
+            <option value="data_science">Data Scientist</option>
+          </select>
+
+          <button type="submit" class="analyze-btn">Analyze Resume</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p><strong>Developed By:</strong> Khalid Hussain</p>
+  </footer>
+</body>
+</html>

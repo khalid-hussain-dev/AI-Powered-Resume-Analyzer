@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+	<link rel="icon" type="image/png" href="{{ url_for('static', filename='logo.png') }}" />
+  <title>Resume Analysis Result</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='result.css') }}">
+</head>
+<body class="main-bg">
+  <header class="header">
+    <h1>{{ role }}</h1>
+  </header>
+
+  <section class="skills-section">
+    <div class="skills-box">
+      <h3>Matched Skills</h3>
+      <div class="skills-inner">
+        {% if matched %}
+          {% for skill in matched %}
+            <p>{{ skill }}</p>
+          {% endfor %}
+        {% else %}
+          <p>No matched skills.</p>
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="skills-box">
+      <h3>Missing Skills</h3>
+      <div class="skills-inner">
+        {% if missing %}
+          {% for skill in missing %}
+            <p>{{ skill }}</p>
+          {% endfor %}
+        {% else %}
+          <p>No missing skills.</p>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  <div class="percentage-box">
+    <button class="percentage-btn">Match Skills Percentage: {{ match_percent }}%</button>
+  </div>
+  
+  <section class="result-section">
+    <h2>Skill Match Chart</h2>
+    <div class="chart-box">
+      {% if chart %}
+        <img src="data:image/png;base64,{{ chart }}" alt="Match Chart">
+      {% else %}
+        <p><strong>Chart could not be generated.</strong></p>
+      {% endif %}
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p><strong>Developed By:</strong> Khalid Hussain</p>
+  </footer>
+</body>
+</html>
