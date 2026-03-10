@@ -3,3 +3,4 @@ fitz
 nltk
 re
 matplotlib
+gunicorn
