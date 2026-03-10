@@ -7,6 +7,16 @@ import os
 from resume_parser import extract_text_from_pdf, clean_and_tokenize
 from skill_matcher import load_skills, match_skills
 
+import nltk
+
+# Download required NLTK data on startup
+try:
+    nltk.data.find('tokenizers/punkt_tab')
+except LookupError:
+    nltk.download('punkt_tab', quiet=True)
+
+# Rest of your imports...
+
 app = Flask(__name__)
 UPLOAD_FOLDER = 'resumes'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -68,3 +78,4 @@ def upload_resume():
         
 if __name__ == '__main__':
     app.run(debug=True)
+
