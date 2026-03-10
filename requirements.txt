@@ -1,5 +1,5 @@
 flask
-fitz
+PyMuPDF
 nltk
 matplotlib
 gunicorn
